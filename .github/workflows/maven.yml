@@ -33,7 +33,7 @@ jobs:
 
 # /home/runner/work/mirrormaker_topic_rename/mirrormaker_topic_rename/target/mmchangetopic-1.0-SNAPSHOT.jar      
     - name: Create release
-      uses: softprops/action-gh-release@master
+      uses: softprops/action-gh-release@v2.1.0
       with:
         files: target/mmchangetopic*.jar
         prerelease: true
