@@ -23,8 +23,6 @@
       <groupId>org.apache.kafka</groupId>
       <artifactId>kafka_2.13</artifactId>
       <version>3.1.2</version>
-      <name>Apache Kafka</name>
-      <url>https://kafka.apache.org</url>
     </dependency>
   </dependencies>
 </project>
