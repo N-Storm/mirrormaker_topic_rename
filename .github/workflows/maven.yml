@@ -31,16 +31,21 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
+    - name: Calc SHA256 hashsum of release
+      id: hash
+      run: (echo -n "HASHSUM="; sha256sum target/mmchangetopic*.jar | awk '{print $1}') >> $GITHUB_OUTPUT
+
 # /home/runner/work/mirrormaker_topic_rename/mirrormaker_topic_rename/target/mmchangetopic-1.0-SNAPSHOT.jar      
     - name: Create release
       uses: softprops/action-gh-release@v2.1.0
       with:
         files: target/mmchangetopic*.jar
         prerelease: true
-        tag_name: mmchangetopic-1.0-SNAPSHOT
-        name: mmchangetopic-1.0-SNAPSHOT
+        tag_name: mmchangetopic-{{ steps.hash.outputs.HASHSUM }}
+        name: mmchangetopic-{{ steps.hash.outputs.HASHSUM }}
         body: |
           (!) Automated and untested / experimental build.
+          {{ steps.hash.outputs.HASHSUM }}
           Uploaded on: ${{ env.RELEASE_DATE }}
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
