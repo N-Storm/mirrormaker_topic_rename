@@ -21,8 +21,10 @@
     </dependency>
     <dependency>
       <groupId>org.apache.kafka</groupId>
-      <artifactId>kafka_2.11</artifactId>
-      <version>2.1.0</version>
+      <artifactId>kafka_2.13</artifactId>
+      <version>3.1.2</version>
+      <name>Apache Kafka</name>
+      <url>https://kafka.apache.org</url>
     </dependency>
   </dependencies>
 </project>
